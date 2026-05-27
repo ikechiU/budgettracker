@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.BudgetTracker" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#1B6CA8</item>
+        <item name="colorPrimaryVariant">#0D47A1</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#1B6CA8</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+    </style>
+</resources>
