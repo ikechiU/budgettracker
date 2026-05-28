@@ -1,10 +1,11 @@
 <resources>
     <style name="Theme.BudgetTracker" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">#1B6CA8</item>
-        <item name="colorPrimaryVariant">#0D47A1</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorSecondary">#1B6CA8</item>
-        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_900</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/blue_500</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/bg_screen</item>
         <item name="bottomSheetDialogTheme">@style/Theme.BudgetTracker.BottomSheet</item>
     </style>
 
@@ -14,5 +15,14 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="enableEdgeToEdge">true</item>
+    </style>
+
+    <style name="TextAppearance.BudgetTracker.Amount" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/text_on_dark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.BudgetTracker.Label" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/text_on_dark_muted</item>
     </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.iykeafrica.budgettracker;
+package com.iykeafrica.budgettracker.data.remote;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -7,18 +7,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Singleton that creates and holds the Retrofit instance.
- * Call SheetsApiClient.getService() anywhere you need to make a network call.
- */
+/** Singleton Retrofit instance. Call SheetsApiClient.getService() to make network calls. */
 public class SheetsApiClient {
 
     private static SheetsApiService SERVICE;
 
     public static SheetsApiService getService() {
         if (SERVICE == null) {
-
-            // Logs every HTTP request and response to Logcat — very useful for debugging
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -30,7 +25,7 @@ public class SheetsApiClient {
                     .followSslRedirects(true)
                     .build();
 
-            // Base URL must end with "/" — the actual full URL is passed per-call via @Url
+            // Base URL must end with "/" — full URL passed per-call via @Url
             SERVICE = new Retrofit.Builder()
                     .baseUrl("https://script.google.com/")
                     .client(client)

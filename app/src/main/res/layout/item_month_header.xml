@@ -5,14 +5,16 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:paddingTop="20dp"
-    android:paddingBottom="8dp">
+    android:paddingTop="18dp"
+    android:paddingBottom="8dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
 
     <View
-        android:layout_width="24dp"
-        android:layout_height="1dp"
-        android:background="#1B6CA8"
-        android:layout_marginEnd="8dp"/>
+        android:layout_width="3dp"
+        android:layout_height="14dp"
+        android:background="@color/blue_500"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/tvMonthLabel"
@@ -21,14 +23,14 @@
         android:text="May 2026"
         android:textSize="13sp"
         android:textStyle="bold"
-        android:textColor="#1B6CA8"
-        android:letterSpacing="0.05" />
+        android:textColor="@color/blue_500"
+        android:letterSpacing="0.04" />
 
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:background="#1B6CA8"
-        android:layout_marginStart="8dp"/>
+        android:background="@color/divider"
+        android:layout_marginStart="10dp" />
 
 </LinearLayout>

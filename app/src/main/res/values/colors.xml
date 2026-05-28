@@ -2,4 +2,37 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand -->
+    <color name="blue_700">#1565C0</color>
+    <color name="blue_900">#1E3A8A</color>
+    <color name="blue_500">#1B6CA8</color>
+
+    <!-- Surface -->
+    <color name="bg_screen">#F1F5F9</color>
+    <color name="surface_card">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A202C</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_on_dark">#FFFFFF</color>
+    <color name="text_on_dark_muted">#B8D4F5</color>
+
+    <!-- Category chip tints (background alpha ~20%) -->
+    <color name="chip_food">#FF6B6B</color>
+    <color name="chip_transport">#4ECDC4</color>
+    <color name="chip_housing">#45B7D1</color>
+    <color name="chip_health">#96CEB4</color>
+    <color name="chip_entertainment">#DDA0DD</color>
+    <color name="chip_shopping">#F7DC6F</color>
+    <color name="chip_utilities">#85C1E9</color>
+    <color name="chip_other">#A9A9A9</color>
+
+    <!-- Status colors -->
+    <color name="status_ok">#1B6CA8</color>
+    <color name="status_warn">#E65100</color>
+    <color name="status_danger">#BA1A1A</color>
+
+    <!-- Divider -->
+    <color name="divider">#E2E8F0</color>
 </resources>

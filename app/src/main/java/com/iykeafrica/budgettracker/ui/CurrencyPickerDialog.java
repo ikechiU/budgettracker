@@ -1,4 +1,4 @@
-package com.iykeafrica.budgettracker;
+package com.iykeafrica.budgettracker.ui;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -18,18 +18,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.iykeafrica.budgettracker.R;
+import com.iykeafrica.budgettracker.util.CurrencyConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Full-screen dialog that lets the user pick their country and currency.
- * Shown only once on first launch.
- * Has a search box so users can filter the list quickly.
+ * Full-screen dialog for currency selection. Shown once on first launch.
+ * Has a live-filter search box.
  */
 public class CurrencyPickerDialog extends Dialog {
-
-    // ── Callback ───────────────────────────────────────────────────────────
 
     public interface OnCurrencySelectedListener {
         void onCurrencySelected(String code, String symbol, String countryName);
@@ -37,15 +36,10 @@ public class CurrencyPickerDialog extends Dialog {
 
     private final OnCurrencySelectedListener listener;
 
-    // ── Constructor ────────────────────────────────────────────────────────
-
-    public CurrencyPickerDialog(@NonNull Context context,
-                                OnCurrencySelectedListener listener) {
+    public CurrencyPickerDialog(@NonNull Context context, OnCurrencySelectedListener listener) {
         super(context);
         this.listener = listener;
     }
-
-    // ── Lifecycle ──────────────────────────────────────────────────────────
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,24 +47,18 @@ public class CurrencyPickerDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_currency_picker);
 
-        // Make dialog full screen
         if (getWindow() != null) {
-            getWindow().setLayout(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-            );
+            getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+                                  ViewGroup.LayoutParams.MATCH_PARENT);
             getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         }
 
-        // Non-cancellable — user must pick a currency
         setCancelable(false);
         setCanceledOnTouchOutside(false);
 
         setupSearch();
         setupList();
     }
-
-    // ── Search ─────────────────────────────────────────────────────────────
 
     private CurrencyListAdapter adapter;
 
@@ -79,9 +67,7 @@ public class CurrencyPickerDialog extends Dialog {
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int st, int c, int a) {}
             @Override public void afterTextChanged(Editable s) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
                 adapter.filter(s.toString());
             }
         });
@@ -90,11 +76,7 @@ public class CurrencyPickerDialog extends Dialog {
     private void setupList() {
         RecyclerView recyclerView = findViewById(R.id.rvCurrencies);
         adapter = new CurrencyListAdapter(CurrencyConfig.getAll(), currency -> {
-            listener.onCurrencySelected(
-                    currency.currencyCode,
-                    currency.symbol,
-                    currency.countryName
-            );
+            listener.onCurrencySelected(currency.currencyCode, currency.symbol, currency.countryName);
             dismiss();
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -120,7 +102,6 @@ public class CurrencyPickerDialog extends Dialog {
             this.listener     = listener;
         }
 
-        /** Filters the list by country name or currency code. */
         void filter(String query) {
             filteredList = new ArrayList<>();
             if (query.isEmpty()) {
