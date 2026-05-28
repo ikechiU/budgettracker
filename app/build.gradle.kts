@@ -14,8 +14,8 @@ android {
         applicationId = "com.iykeafrica.budgettracker"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "APPS_SCRIPT_URL", "\"https://script.google.com/macros/s/AKfycby0ZKk-vx9IILHx47ZxUpMc5TanIAdvQ2UPHK29qEuMR8GAJrIG3EWfW51FT8lBGs5CVw/exec\"")
