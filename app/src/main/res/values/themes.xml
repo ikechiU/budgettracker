@@ -5,5 +5,14 @@
         <item name="colorOnPrimary">#FFFFFF</item>
         <item name="colorSecondary">#1B6CA8</item>
         <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.BudgetTracker.BottomSheet</item>
+    </style>
+
+    <style name="Theme.BudgetTracker.BottomSheet"
+        parent="Theme.Material3.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="enableEdgeToEdge">true</item>
     </style>
 </resources>

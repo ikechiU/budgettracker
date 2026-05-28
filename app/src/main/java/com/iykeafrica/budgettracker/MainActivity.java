@@ -72,14 +72,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        androidx.core.view.WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         setContentView(R.layout.activity_main);
 
         bindViews();
+        applyWindowInsets();
         setupToolbar();
         setupRecyclerView();
         setupBottomSheet();
         setupViewModel();
         setupClickListeners();
+    }
+
+    private void applyWindowInsets() {
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(
+                findViewById(R.id.rootLayout),
+                (view, insets) -> {
+                    androidx.core.graphics.Insets systemBars =
+                            insets.getInsets(
+                                    androidx.core.view.WindowInsetsCompat.Type.systemBars()
+                            );
+                    view.setPadding(
+                            systemBars.left,
+                            systemBars.top,
+                            systemBars.right,
+                            systemBars.bottom
+                    );
+                    return insets;
+                }
+        );
     }
 
     // ── Setup ──────────────────────────────────────────────────────────────

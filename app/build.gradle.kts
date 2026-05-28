@@ -51,23 +51,23 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     // Room (local database)
-    implementation("androidx.room:room-runtime:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
 
     // Retrofit + Gson (HTTP calls to Google Sheets)
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // OkHttp logging interceptor (for debugging network calls)
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation(libs.logging.interceptor)
 
     // ViewModel + LiveData
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.3")
-    implementation("androidx.lifecycle:lifecycle-livedata:2.8.3")
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
 
     // ExecutorService helper (runs background work in Java)
-    implementation("androidx.lifecycle:lifecycle-runtime:2.8.3")
+    implementation(libs.lifecycle.runtime)
 
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("androidx.cardview:cardview:1.0.0")
+    implementation(libs.recyclerview)
+    implementation(libs.cardview)
 }
